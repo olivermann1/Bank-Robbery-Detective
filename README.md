@@ -652,5 +652,10 @@ Please start by describing the interview room scene and having Jim Tomlin introd
             window.open('https://claude.ai', '_blank');
         }
     </script>
+    <footer style="text-align: center; margin-top: 40px; padding: 20px; border-top: 2px solid rgba(243, 156, 18, 0.3); color: #95a5a6; font-size: 0.9em;">
+        Based on an activity from <em>Ready to Write!</em> by Christine Root and Karen Blanchard. Adapted for interactive learning by Oliver Mann using Claude Sonnet 4.5.
+    </footer>
+</body>
+</html>
 </body>
 </html>
