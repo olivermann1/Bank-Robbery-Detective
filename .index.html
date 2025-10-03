@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Robbery Detective Game - ESL Learning</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 4px solid #c41e3a;
+            border-radius: 5px;
+        }
+        
+        .section h2 {
+            color: #c41e3a;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .section h3 {
+            color: #2a5298;
+            margin-top: 15px;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .background {
+            background: #fff3cd;
+            border-left-color: #ffc107;
+        }
+        
+        .suspects {
+            display: grid;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .suspect-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid #ddd;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .suspect-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .suspect-card h3 {
+            color: #c41e3a;
+            margin-top: 0;
+        }
+        
+        .level-badge {
+            display: inline-block;
+            background: #2a5298;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+        
+        .rules {
+            background: #d1ecf1;
+            border-left-color: #17a2b8;
+        }
+        
+        ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background: #fff3cd;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        
+        .profile-detail {
+            margin: 8px 0;
+            padding-left: 15px;
+        }
+        
+        .profile-detail strong {
+            color: #2a5298;
+        }
+        
+        .progress-tracker {
+            background: #e7f3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        
+        .progress-tracker h4 {
+            color: #2a5298;
+            margin-bottom: 10px;
+        }
+        
+        .footer {
+            background: #2a5298;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #c41e3a;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background 0.3s;
+        }
+        
+        .cta-button:hover {
+            background: #8b0000;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Bank Robbery Detective Game</h1>
+            <p>An ESL Learning Adventure</p>
+            <p style="font-size: 0.9em; margin-top: 10px; opacity: 0.9;">Based on an activity from <em>Ready to Write</em> by Karen Blanchard and Christine Root.<br>Adapted for interactive learning by Oliver Mann with Claude Sonnet 4.5.</p>
+        </div>
+        
+        <div class="content">
+            <div class="section background">
+                <h2>📰 Background: Computer Crime Hits Local Bank</h2>
+                <p>National City Bank and Trust Company is the largest bank in the city, holding assets in the billions of dollars. In 1960, the bank computerized its operations and had considered itself fortunate for avoiding any issues with computer crime—until last week.</p>
+                <p style="margin-top: 15px;">Last Wednesday, bank accountants discovered that a total of <span class="highlight">$400,000</span> was missing from several different accounts. So far, it is unknown where the funds were transferred. A police investigation has led to three possible suspects. These three individuals had easy access to the computer system that transferred the funds out of the bank.</p>
+            </div>
+            
+            <div class="section">
+                <h2>🎭 Your Role</h2>
+                <p>You are a detective investigating this robbery. Three suspects have been identified, each with access to the bank's computer system. You must question each suspect carefully. <strong>Each suspect will only confess if your questions and conversation meet their language proficiency level.</strong></p>
+            </div>
+            
+            <div class="section">
+                <h2>👥 The Three Suspects</h2>
+                <div class="suspects">
+                    <div class="suspect-card">
+                        <h3>1. Norman Glass 👨‍💻 <span class="level-badge">A2 Level</span></h3>
+                        <div class="profile-detail"><strong>Position:</strong> Computer operator 💼</div>
+                        <div class="profile-detail"><strong>Employment:</strong> 6 months ⏱️</div>
+                        <div class="profile-detail"><strong>Salary:</strong> Low 💵</div>
+                        <div class="profile-detail"><strong>Personal:</strong> Married with 4 children 👨‍👩‍👧‍👦</div>
+                        <div class="profile-detail"><strong>Assets:</strong> Large house 🏠, expensive car 🚗</div>
+                        <div class="profile-detail"><strong>Background:</strong> Medal of Honor recipient 🎖️</div>
+                    </div>
+                    
+                    <div class="suspect-card">
+                        <h3>2. Richard Allen 👔 <span class="level-badge">B1 Level</span></h3>
+                        <div class="profile-detail"><strong>Position:</strong> Vice President 🏦</div>
+                        <div class="profile-detail"><strong>Employment:</strong> 35 years at bank ⌛</div>
+                        <div class="profile-detail"><strong>Salary:</strong> Very high 💰</div>
+                        <div class="profile-detail"><strong>Financial Status:</strong> Recent stock market losses 📉</div>
+                        <div class="profile-detail"><strong>Lifestyle:</strong> Expensive vacations 🏖️ and lavish lifestyle 🥂</div>
+                        <div class="profile-detail"><strong>Background:</strong> Excellent history with the bank ⭐</div>
+                    </div>
+                    
+                    <div class="suspect-card">
+                        <h3>3. Jim Tomlin 🎓 <span class="level-badge">B2 Level</span></h3>
+                        <div class="profile-detail"><strong>Position:</strong> Computer consultant 💻</div>
+                        <div class="profile-detail"><strong>Employment:</strong> 2 years 📅</div>
+                        <div class="profile-detail"><strong>Personal:</strong> Supports sick mother 👵❤️</div>
+                        <div class="profile-detail"><strong>Education:</strong> Harvard graduate 🎓</div>
+                        <div class="profile-detail"><strong>Issue:</strong> Gambling problem 🎰</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section rules">
+                <h2>📋 Game Rules</h2>
+                <h3>How the AI Responds:</h3>
+                <ul>
+                    <li>Uses vocabulary and grammar appropriate for each suspect's level</li>
+                    <li>If your <strong>question formation is wrong</strong>: "Do you have a question for me?"</li>
+                    <li>If your <strong>verb tense is wrong</strong>: "When are you asking me about?"</li>
+                    <li>Tracks your progress with encouraging feedback after each successful exchange</li>
+                </ul>
+                
+                <div class="progress-tracker">
+                    <h4>Progress Tracking:</h4>
+                    <ul>
+                        <li>Exchange 1/5: "Good start! 👍"</li>
+                        <li>Exchange 2/5: "Nice work! 😊"</li>
+                        <li>Exchange 3/5: "Well done! 🌟"</li>
+                        <li>Exchange 4/5: "Excellent! 🎯"</li>
+                        <li>Exchange 5/5: "Outstanding! You can now try for a confession. 🏆"</li>
+                    </ul>
+                </div>
+                
+                <h3 style="margin-top: 20px;">Getting a Confession:</h3>
+                <ul>
+                    <li>After <strong>5 successful exchanges</strong> at the correct level, you can accuse the suspect</li>
+                    <li>The suspect will confess with a random, humorous, or tragic motive</li>
+                    <li>If you try too early: "You can't talk to me that way!" (maintains innocence)</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>🎯 How to Play</h2>
+                <ol>
+                    <li>Choose a suspect to interview (start with A2 for easier practice)</li>
+                    <li>Tell the AI: "I am ready to interview [Suspect Name] ([Level])"</li>
+                    <li>Ask questions appropriate to their language level</li>
+                    <li>Pay attention to grammar and verb tenses</li>
+                    <li>Complete 5 successful exchanges</li>
+                    <li>Make your accusation and get the confession!</li>
+                </ol>
+                
+                <p style="margin-top: 20px;"><strong>Example prompt to start:</strong></p>
+                <p style="background: white; padding: 15px; border-radius: 5px; margin-top: 10px; font-style: italic;">
+                    "I am ready to interview Richard Allen (B1 level). Please act as my ESL teacher roleplaying as Richard Allen."
+                </p>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>🎓 Practice English while solving a mystery!</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">Use this game with Claude AI or any AI assistant that can roleplay</p>
+        </div>
+    </div>
+</body>
+</html>
